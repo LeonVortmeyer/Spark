@@ -1,0 +1,48 @@
+{
+  "session_id": "order_entry_01_01",
+  "enabled": true,
+  "session_type": "ORDER_ENTRY",
+  "description": "Order entry session for trading desk D-POLARIS-01",
+  "connection": {
+    "host": "primary.electronx.com",
+    "port": 13101,
+    "use_secondary": false,
+    "secondary_host": "secondary.electronx.com",
+    "secondary_port": 13101,
+    "connect_timeout_ms": 30000,
+    "socket_timeout_ms": 5000
+  },
+  "tls": {
+    "client_cert_path": "/path/to/certs/client.crt",
+    "client_key_path": "/path/to/certs/client.key",
+    "ca_cert_path": "/path/to/certs/ca.crt",
+    "verify_server": true,
+    "min_tls_version": "1.2"
+  },
+  "fix_session": {
+    "sender_comp_id": "D-POLARIS-01-OE01",
+    "target_comp_id": "EXI",
+    "sender_sub_id": "john.smith@polaristrading.com",
+    "heartbeat_interval": 30,
+    "reset_seq_num_on_logon": true,
+    "enable_weekly_reset": true,
+    "weekly_reset_day": "Sunday",
+    "weekly_reset_time_utc": "06:15:00"
+  },
+  "trading": {
+    "default_account": "TA-POLARIS-00001",
+    "customer_order_capacity": 2,
+    "manual_order_indicator": false
+  },
+  "reconnect": {
+    "enabled": true,
+    "max_attempts": -1,
+    "interval_ms": 60000,
+    "backoff_multiplier": 1.5,
+    "max_interval_ms": 300000
+  },
+  "rate_limiting": {
+    "max_messages_per_second": 50,
+    "burst_allowance": 10
+  }
+}

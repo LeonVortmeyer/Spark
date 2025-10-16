@@ -1,0 +1,53 @@
+{
+  "session_id": "market_data_01",
+  "enabled": true,
+  "session_type": "MARKET_DATA",
+  "description": "Market data session 01 for POLARIS",
+  "connection": {
+    "host": "primary.electronx.com",
+    "port": 13001,
+    "use_secondary": false,
+    "secondary_host": "secondary.electronx.com",
+    "secondary_port": 13001,
+    "connect_timeout_ms": 30000,
+    "socket_timeout_ms": 5000
+  },
+  "tls": {
+    "client_cert_path": "/path/to/certs/client.crt",
+    "client_key_path": "/path/to/certs/client.key",
+    "ca_cert_path": "/path/to/certs/ca.crt",
+    "verify_server": true,
+    "min_tls_version": "1.2"
+  },
+  "fix_session": {
+    "sender_comp_id": "POLARIS-MD01",
+    "target_comp_id": "EXI",
+    "heartbeat_interval": 30,
+    "reset_seq_num_on_logon": true,
+    "enable_weekly_reset": true,
+    "weekly_reset_day": "Sunday",
+    "weekly_reset_time_utc": "06:15:00"
+  },
+  "market_data": {
+    "auto_subscribe_symbols": [
+      "GOOG",
+      "AAPL",
+      "MSFT",
+      "TSLA"
+    ],
+    "subscription_type": "SNAPSHOT_PLUS_UPDATES",
+    "market_depth": 0,
+    "entry_types": [
+      "BID",
+      "OFFER",
+      "TRADE"
+    ]
+  },
+  "reconnect": {
+    "enabled": true,
+    "max_attempts": -1,
+    "interval_ms": 60000,
+    "backoff_multiplier": 1.5,
+    "max_interval_ms": 300000
+  }
+}
